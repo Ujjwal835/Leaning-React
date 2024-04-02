@@ -1,0 +1,14 @@
+.buttonsContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background: linear-gradient(180.3deg, rgb(221, 221, 221) 5.5%, rgb(110, 136, 161) 90.2%);
+}
+
+.button {
+    width: 45px;
+    height: 45px;
+    margin: 3px;
+    border: 2px solid black;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
