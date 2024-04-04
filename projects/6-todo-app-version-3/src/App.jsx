@@ -7,15 +7,26 @@ import { useState } from "react";
 
 function App() {
   const [todoItems, setTodoItems] = useState([]);
+// in this if the project is complex, i.e there are multiple states and props and one is dependent on other  then it may happen that newtodoitem is taking old spread item not the current one 
 
+  // const handleNewItem = (itemName, itemDueDate) => {
+  //   const newTodoItems = [
+  //     ...todoItems,
+  //     { name: itemName, dueDate: itemDueDate },
+  //   ];
+  //   setTodoItems(newTodoItems);
+  // };
   const handleNewItem = (itemName, itemDueDate) => {
-    const newTodoItems = [
-      ...todoItems,
-      { name: itemName, dueDate: itemDueDate },
-    ];
-    setTodoItems(newTodoItems);
-  };
+    setTodoItems((currValue)=>{
+      const newTodoItems = [
+        ...currValue,
+        { name: itemName, dueDate: itemDueDate },
+      ];
+      return newTodoItems
 
+    });
+  };
+ 
   const handleDeleteItem = (todoItemName) => {
     const newTodoItems = todoItems.filter((item) => item.name != todoItemName);
     setTodoItems(newTodoItems);
