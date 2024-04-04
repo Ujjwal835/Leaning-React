@@ -11,7 +11,9 @@ export default function AddTodo({ onNewItem }) {
   const handleDateChange = (event) => {
     setDueDate(event.target.value)
   }
-  const handleOnButtonClick = () => {
+  const handleOnButtonClick = (event) => {
+    // console.log(event)
+    event.preventDefault();
     onNewItem(todoName, dueDate)
     setDueDate('')
     setTodoName('')
@@ -20,7 +22,7 @@ export default function AddTodo({ onNewItem }) {
 
   return (
     <div className="container">
-      <div className="row kg-row">
+      <form onSubmit={handleOnButtonClick} className="row kg-row">
         <div className="col-6">
           <input type="text" placeholder="Enter Todo Here" value={todoName} onChange={handleeNameChange} />
         </div>
@@ -28,11 +30,11 @@ export default function AddTodo({ onNewItem }) {
           <input type="date" value={dueDate} onChange={handleDateChange} />
         </div>
         <div className="col-2">
-          <button type="button" className="btn btn-success kg-button" onClick={handleOnButtonClick}>
+          <button className="btn btn-success kg-button" >
             <GrAddCircle />
           </button>
         </div>
-      </div>
+      </form>
     </div>
   );
 }
