@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { GrAddCircle } from "react-icons/gr";
 export default function AddTodo({ onNewItem }) {
 
   const [todoName, setTodoName] = useState('');
@@ -29,7 +29,7 @@ export default function AddTodo({ onNewItem }) {
         </div>
         <div className="col-2">
           <button type="button" className="btn btn-success kg-button" onClick={handleOnButtonClick}>
-            Add
+            <GrAddCircle />
           </button>
         </div>
       </div>

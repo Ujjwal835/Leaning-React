@@ -7,7 +7,7 @@ export default function TodoItems({ todoItems, onDeleteClick }) {
 
             {/* since we are getting an array todoitems therfoore use map method and use curly braces because its javascript */}
 
-            {todoItems.map((item, index) => (< TodoItem key={index} todoDate={item.dueDate} todoName={item.name} onDeleteClick={onDeleteClick} />))}
+            {todoItems.map((item) => (< TodoItem key={item.name} todoDate={item.dueDate} todoName={item.name} onDeleteClick={onDeleteClick} />))}
 
         </div>
     )
