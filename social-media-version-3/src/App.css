@@ -1,5 +1,12 @@
 .app-container {
     display: flex;
+    height: fit-content;
+    background: #FFA17F;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #00223E, #FFA17F);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #00223E, #FFA17F);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .content {
@@ -11,16 +18,11 @@
     width: 80px;
 }
 
-.middle-section {
-    height: fit-content;
-    background: #FFA17F;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #00223E, #FFA17F);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #00223E, #FFA17F);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+.text-bg-side {
+    color: #fff !important;
 }
+
+
 
 .middle-section-middle {
     display: flex;

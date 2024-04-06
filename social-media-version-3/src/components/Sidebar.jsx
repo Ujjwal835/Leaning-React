@@ -1,7 +1,7 @@
 export default function Sidebar({ selectedTab, setSelectedTab }) {
     return (
         <div
-            className="d-flex flex-column flex-shrink-0 p-3 text-bg-dark sidebar"
+            className="d-flex flex-column flex-shrink-0 p-3 text-bg-side sidebar"
             style={{ width: "180px" }}
         >
             <a
@@ -11,7 +11,7 @@ export default function Sidebar({ selectedTab, setSelectedTab }) {
                 <svg className="bi pe-none me-2" width="40" height="32">
                     <use xlinkHref="#bootstrap"></use>
                 </svg>
-                <span className="fs-4">Sidebar</span>
+                <span className="fs-4">Menu</span>
             </a>
             <hr />
             <ul className="nav nav-pills flex-column mb-auto">

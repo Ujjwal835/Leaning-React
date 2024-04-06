@@ -15,12 +15,10 @@ function App() {
     <PostListProvider>
       <div className="app-container">
         <Sidebar selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
-        <div className="content">
+        <div className="content ">
           <Header />
-          <div className="middle-section">
-            {selectedTab === "Home" ? <PostList /> : <CreatePost />}
-            <Footer />
-          </div>
+          {selectedTab === "Home" ? <PostList /> : <CreatePost />}
+          <Footer />
         </div>
       </div>
     </PostListProvider>
