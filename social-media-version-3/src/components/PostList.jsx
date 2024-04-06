@@ -1,22 +1,35 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Post from "./Post";
 import { useContext } from "react";
 import { PostList as PostListData } from "../store/post-list-store";
 import WelcomeMessage from "./WelcomeMessage";
+import LoadingSpinner from "./LoadingSpinner";
 
 export default function PostList() {
     const { postList, addInitialPosts } = useContext(PostListData);
+    const [fetching, setFetching] = useState(false);
+
     useEffect(() => {
-        fetch("https://dummyjson.com/posts")
+        setFetching(true);
+
+        //to clean up the api we are using abortcontroller
+        const controller = new AbortController()
+        const signal = controller.signal
+
+        fetch("https://dummyjson.com/posts", { signal })
             .then((res) => res.json())
             .then((data) => {
                 addInitialPosts(data.posts);
+                setFetching(false);
             });
-    }, [])
+        // this is the cleanup function means whenever this useffect or the call is getting murder then this cleanup will be called
+        // cleaning up the api
+        return () => {
+            controller.abort();
+        }
+    }, []);
 
-
-
-    //   automatically loading the dummy post using state managemnet useState
+    //   automatically loading the dummy post using state management useState
     //   const [dataFetched, setDataFetched] = useState(false);
 
     //   if (!dataFetched) {
@@ -30,12 +43,9 @@ export default function PostList() {
 
     return (
         <>
-            {postList.length === 0 && (
-                <WelcomeMessage />
-            )}
-            {postList.map((post) => (
-                <Post key={post.id} post={post} />
-            ))}
+            {fetching && <LoadingSpinner />}
+            {!fetching && postList.length === 0 && <WelcomeMessage />}
+            {!fetching && postList.map((post) => <Post key={post.id} post={post} />)}
         </>
     );
 }

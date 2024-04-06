@@ -34,3 +34,12 @@
 .welcome-message {
     margin: 100px 0;
 }
+
+.spinner {
+    margin: 10% 0;
+}
+.spinner-size{
+    width: 5rem;
+    height: 5rem;
+
+}
