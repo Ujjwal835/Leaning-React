@@ -6,7 +6,7 @@ export default function Post({ post }) {
 
     const { deletePost } = useContext(PostList);
     return (
-        <div className="card post-card">
+        <div className="card post-card post-card-box">
             {/* <img src="..." className="card-img-top" alt="..." /> */}
             <div className="card-body">
                 <h5 className="card-title">{post.title}</h5>

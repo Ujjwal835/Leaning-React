@@ -13,8 +13,8 @@ export default function PostList() {
         setFetching(true);
 
         //to clean up the api we are using abortcontroller
-        const controller = new AbortController()
-        const signal = controller.signal
+        const controller = new AbortController();
+        const signal = controller.signal;
 
         fetch("https://dummyjson.com/posts", { signal })
             .then((res) => res.json())
@@ -26,7 +26,7 @@ export default function PostList() {
         // cleaning up the api
         return () => {
             controller.abort();
-        }
+        };
     }, []);
 
     //   automatically loading the dummy post using state management useState
@@ -42,10 +42,13 @@ export default function PostList() {
     //   }
 
     return (
-        <>
+        <div>
             {fetching && <LoadingSpinner />}
             {!fetching && postList.length === 0 && <WelcomeMessage />}
-            {!fetching && postList.map((post) => <Post key={post.id} post={post} />)}
-        </>
+            <div className="middle-section-middle">
+
+                {!fetching && postList.map((post) => <Post key={post.id} post={post} />)}
+            </div>
+        </div>
     );
 }
